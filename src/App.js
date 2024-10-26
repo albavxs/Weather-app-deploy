@@ -24,7 +24,7 @@ function App() {
   const [expandedCard, setExpandedCard] = useState(null);
 
   const fetchMainCitiesWeather = useCallback(async () => {
-  
+    console.log("API Key:", process.env.REACT_APP_API_KEY);
 
     const cities = mainCities.Brasil;
     const requests = cities.map((city) =>

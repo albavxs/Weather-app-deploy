@@ -112,11 +112,11 @@
   cursor: pointer;
 }
 
-
 .weather-card.expanded {
   top: 50%;
   left: 50%;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, max-width 0.5s, height 0.5s;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
+    max-width 0.5s, height 0.5s;
   justify-content: space-between;
   width: 70%; /* Ajuste a largura como preferir */
   height: 60vh; /* Altura suficiente para exibir mais informações */
@@ -130,7 +130,8 @@
 .weather-info.expanded {
   top: 50%;
   left: 50%;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, max-width 0.5s, height 0.5s;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
+    max-width 0.5s, height 0.5s;
   justify-content: space-between;
   padding: 0px 40px;
   border-radius: 8px;
@@ -142,7 +143,7 @@
   background-color: #333;
   font-size: 35%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra */
-  overflow: auto; 
+  overflow: auto;
   overlay: none;
 }
 
@@ -160,8 +161,6 @@
 .overlay.active {
   display: block;
 }
-
-
 
 .weather-info:hover {
   transform: scale(1.05); /* Aumenta o tamanho do cartão ao passar o mouse */
@@ -226,10 +225,6 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.954); /* Sombra mais forte */
 }
 
-
-
-
-
 .title {
   font-size: 50px;
   position: relative;
@@ -261,5 +256,137 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Estilos gerais para telas menores */
+@media (max-width: 850px) {
+  .search-bar {
+    width: 100%;
+    max-width: 50%; /* Aumenta a largura da barra de pesquisa para ocupar toda a largura */
+    position: relative; /* Altera a posição para ser relativa */
+    margin-top: 10px; /* Ajusta a margem superior */
+  }
+
+  .search-bar input {
+    font-size: 1rem; /* Ajusta para um tamanho de fonte relativo */
+    padding: 10px; /* Aumenta o preenchimento para facilitar o toque */
+  }
+
+  .search-bar button {
+    font-size: 1rem; /* Aumenta o tamanho do botão */
+    padding: 10px 15px; /* Ajusta o preenchimento do botão */
+  }
+
+ 
+
+  .weather-card {
+    width: 100%;
+    margin: 20px auto; /* Espaço entre os cards */
+    margin-top: 12%;
+    display: flex;
+    flex-direction: column; /* Alinha os itens verticalmente */
+  }
+
+  .weather-card .weather-info {
+    display: block; /* Adiciona uma quebra de linha */
+    margin-bottom: 10px; /* Espaçamento entre as informações */
+  }
+
+  .weather-info.expanded {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
+      max-width 0.5s, height 0.5s;
+    justify-content: space-between;
+    padding: 0 40px;
+    border-radius: 8px;
+    flex-direction: row; /* Alinha os itens horizontalmente */
+    width: 100%;
+    max-width: 250px;
+    margin: 20px auto; /* Ajuste a largura como preferir */
+    height: auto; /* Altura automática para exibir mais informações */
+    z-index: 80; /* Certifica-se de que o elemento fique acima dos outros */
+    background-color: #333;
+    font-size: 35%; /* Ajusta o tamanho da fonte */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra */
+    overflow: auto;
+  }
+
+
+  .title {
+    font-size: 1.5rem; /* Diminui o tamanho do título para dispositivos móveis */
+    margin-left: 5%; /* Ajuste da margem para centralizar */
+  }
+
+  .titulocity {
+    position: absolute;
+    font-size: 0.8rem;
+    margin-left: 8%; /* Ajuste da margem para centralizar */
+  }
+}
+.user-weather img {
+  width: 40px;
+}
+
+/* Estilos para tablets */
+@media (min-width: 750px) and (max-width: 1024px) {
+  .search-bar {
+    width: 100%;
+    position: relative;
+    margin-top: 10px;
+  }
+
+  .search-bar input {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .search-bar button {
+    font-size: 1rem;
+    padding: 10px 15px;
+  }
+
+  .weather-info {
+    display: flex;
+    width: 80%; /* Aumenta a largura do contêiner para 80% */
+    height: 5vh;
+    justify-content: space-between;
+    margin: 10px auto;
+    font-size: 22%;
+  }
+
+  .weather-card {
+    width: calc(100% - 40px);
+    margin: 20px auto;
+    margin-top: 12%;
+    display: flex;
+    flex-direction: column;
+  }
+  .weather-card.expanded {
+    width: calc(100% - 40px);
+    margin: 20px auto;
+    margin-top: 12%;
+    display: flex;
+
+    flex-direction: column;
+  }
+
+  .weather-card .weather-info {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .weather-info.expanded {
+    /* propriedades aqui */
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-left: 5%;
+  }
+
+  .titulocity {
+    position: absolute;
+    font-size: 0.8rem;
+    margin-left: 5%;
   }
 }
