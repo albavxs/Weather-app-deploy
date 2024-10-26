@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import "./App.css";
 
+
+
 const mainCities = {
   Brasil: [
     "Rio de Janeiro",
@@ -22,10 +24,12 @@ function App() {
   const [expandedCard, setExpandedCard] = useState(null);
 
   const fetchMainCitiesWeather = useCallback(async () => {
+  
+
     const cities = mainCities.Brasil;
     const requests = cities.map((city) =>
       axios.get(
-        `https://api.weatherapi.com/v1/current.json?key=aad5666590e644dd97655235242010&q=${city}&lang=${language}`
+        `https://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API_KEY}&q=${city}&lang=${language}`
       )
     );
 
@@ -40,10 +44,12 @@ function App() {
   }, [language]);
 
   const fetchUserCityWeather = useCallback(
+    
     async (lat, lon) => {
+      
       try {
         const response = await axios.get(
-          `https://api.weatherapi.com/v1/current.json?key=aad5666590e644dd97655235242010&q=${lat},${lon}&lang=${language}`
+          `https://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API_KEY}&q=${lat},${lon}&lang=${language}`
         );
         setUserCityWeather(response.data);
       } catch (err) {
@@ -56,7 +62,7 @@ function App() {
   const fetchWeather = async (location) => {
     try {
       const response = await axios.get(
-        `https://api.weatherapi.com/v1/current.json?key=aad5666590e644dd97655235242010&q=${location}&lang=${language}`
+        `https://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API_KEY}&q=${location}&lang=${language}`
       );
       setWeather(response.data);
       setError(null);
